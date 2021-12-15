@@ -21,7 +21,7 @@ mongoose
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
-//création des routes(middleware)
+
 //Ajout des headers CORS
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-
+//Permet d'interpreter le corps de larequete
 app.use(bodyParser.json());
 //gere les erreurs principales
 app.use(helmet());

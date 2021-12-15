@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/users");
 
 exports.signup = (req, res, next) => {
-  //Cryptage du MDP
+  //Cryptage du MDP unidirectionnel
   bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {
