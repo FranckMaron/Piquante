@@ -3,6 +3,7 @@ const express = require("express"); //framework basé sur Node
 const bodyParser = require("body-parser"); //permet de lire le corps de la requete
 const mongoose = require("mongoose"); //facilite l'utilisation de la base de donnée
 const path = require("path"); //Permet la gestion des repertoires de fichier
+const helmet = require("helmet");
 
 //Importation des router
 const sauceRoutes = require("./routes/sauces");
@@ -36,6 +37,8 @@ app.use((req, res, next) => {
 });
 //Permet d'interpreter le corps de larequete
 app.use(bodyParser.json());
+
+app.use(helmet());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 
