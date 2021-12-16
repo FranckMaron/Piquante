@@ -24,9 +24,8 @@ exports.createSauce = (req, res, next) => {
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file
     ? {
-        ...JSON.parse(req.body.sauce), //on récupère les données de la sauce depuis le modèl
+        ...JSON.parse(req.body.sauce), //on récupère les données de la sauce depuis le modele
         imageUrl: `${req.protocol}://${req.get("host")}/images/${
-          //Ajout de l'image
           req.file.filename
         }`,
       }
